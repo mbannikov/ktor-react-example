@@ -1,0 +1,21 @@
+buildscript {
+    dependencies {
+        classpath "com.moowork.gradle:gradle-node-plugin:$moowork_version"
+    }
+}
+
+apply plugin: 'com.moowork.node'
+
+task build(type: NodeTask, dependsOn: npmInstall) {
+    script = file('./node_modules/.bin/react-scripts')
+    args = ['build']
+}
+
+task run(type: NodeTask, dependsOn: npmInstall) {
+    script = file('./node_modules/.bin/react-scripts')
+    args = ['start']
+}
+
+task clean(type: Delete) {
+    delete 'node_modules', 'build'
+}

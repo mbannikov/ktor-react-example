@@ -1,0 +1,28 @@
+group 'ru.mbannikov'
+
+allprojects {
+    buildscript {
+        ext.moowork_version = '1.2.0'
+        ext.kotlin_version = '1.2.50'
+        ext.ktor_version = '0.9.3'
+        ext.shadow_version = '4.0.1'
+        ext.logback_version = '1.2.1'
+
+        repositories {
+            jcenter()
+            mavenCentral()
+            maven { url "https://plugins.gradle.org/m2/" }
+        }
+    }
+
+    repositories {
+        jcenter()
+        maven { url "https://dl.bintray.com/kotlin/kotlinx" }
+        maven { url "https://dl.bintray.com/kotlin/ktor" }
+        maven { url  "https://dl.bintray.com/pgutkowski/Maven" }
+    }
+}
+
+task clean(type: Delete) {
+    delete 'build'
+}
